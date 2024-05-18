@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.use((req, res, next) => {
-    res.status(404).send("Halaman tidak ditemukan");
+    res.status(404).send("Page Not Find");
   });
  
 const PORT = process.env.PORT || 3000;
