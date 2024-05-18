@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
  <head>
   <meta charset="UTF-8">
@@ -17,8 +17,18 @@
     }
 
     .card {
-      animation: slideInFromBottom 0.5s ease-out; /* Terapkan animasi */
+      opacity: 0; /* Mulai dengan kartu yang tidak terlihat */
+      transform: translateY(100%); /* Mulai di luar layar (bawah) */
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     }
+
+
+
+    .card.visible {
+      opacity: 1; /* Kartu terlihat */
+      transform: translateY(0); /* Geser kartu ke posisi asli */
+    }
+
 
     section:nth-child(even) {
         background-color: #ffffff;  
@@ -90,6 +100,30 @@
             </div>
         </div>
     </section> 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const sections = document.querySelectorAll('section');
+    
+          sections.forEach(section => {
+            const observer = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                const cards = entry.target.querySelectorAll('.card');
+                if (entry.isIntersecting) {
+                  cards.forEach(card => {
+                    card.classList.add('visible'); // Tambahkan kelas animasi
+                  });
+                } else {
+                  cards.forEach(card => {
+                    card.classList.remove('visible'); // Hapus kelas animasi
+                  });
+                }
+              });
+            }, { threshold: 0.5 });
+    
+            observer.observe(section);
+          });
+        });
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="/FirstJS/public/js/events.js"></script> 
 </body>
