@@ -1,0 +1,78 @@
+@keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+@keyframes slideOutToBottom {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  /* Animasi untuk teks */
+@keyframes slideInFromSide {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+@keyframes slideOutToSide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+.card {
+    opacity: 0;
+  }
+
+.slide-in {
+    opacity: 1;
+    animation: slideInFromBottom 0.5s ease-out forwards;
+  }
+
+.slide-out {
+    opacity: 0;
+    animation: slideOutToBottom 0.5s ease-out forwards;
+  }
+
+.animated-text {
+    opacity: 0;
+  }
+
+.slide-in-x {
+    opacity: 1;
+    animation: slideInFromSide 1.5s ease-out forwards;
+  }
+
+.slide-out-x {
+    opacity: 0;
+    animation: slideOutToSide 1.5s ease-out forwards;
+  }  
+section:nth-child(even) {
+      background-color: #697191;  
+      color: rgb(7, 0, 0);  
+  } 
+section:nth-child(odd) {
+      background-color: #61606c;  
+      color: #000000;  
+  }
+section {
+      margin-top: 20px;
+  }
+header {
+      margin-bottom: 20px;
+  } 
